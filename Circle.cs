@@ -4,5 +4,5 @@ public class Circle
 {
     public double Center { get; set; }
 
-    public 
+    public double Radius { get; set;t }
 }
