@@ -27,10 +27,10 @@ public static class PolygonHelper
                 throw new InvalidPolygonException();
 
             //Check to ensure that two identical points are present
-            if (!pointPairs.Intersect(pointPairs).Any())
+            if (pointPairs.Length == pointPairs.Distinct().Count())
                 throw new InvalidPolygonException();
 
-            var points = new List<PolygonPoint>();
+            var points = new List<CoordinatePoint>();
 
             foreach (var pair in pointPairs)
             {
@@ -41,7 +41,7 @@ public static class PolygonHelper
 
                 try
                 {
-                    points.Add(new PolygonPoint
+                    points.Add(new CoordinatePoint
                     {
                         X = double.Parse(parts[0]),
                         Y = double.Parse(parts[1])
