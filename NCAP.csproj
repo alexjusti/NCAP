@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="NCAP.sln.DotSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 
 </Project>
