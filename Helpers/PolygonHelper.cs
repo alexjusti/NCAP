@@ -8,17 +8,17 @@ public static class PolygonHelper
     /// <summary>
     /// Parse polygons formatted as strings into a Polygon object
     /// </summary>
-    /// <param name="_polygons"></param>
+    /// <param name="values"></param>
     /// <returns></returns>
     /// <exception cref="InvalidPolygonException"></exception>
-    public static ICollection<Polygon> ParsePolygons(ICollection<string>? _polygons)
+    public static ICollection<Polygon> ParsePolygons(ICollection<string>? values)
     {
-        if (_polygons == null)
+        if (values == null)
             return new List<Polygon>();
 
         var polygons = new List<Polygon>();
 
-        foreach (var polygon in _polygons)
+        foreach (var polygon in values)
         {
             var pointPairs = Regex.Split(polygon, "\\s+");
 
