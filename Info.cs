@@ -40,5 +40,5 @@ public class Info
 
     public string? Contact { get; set; }
 
-    public ICollection<Parameter> Parameters { get; set }
+    public ICollection<Parameter> Parameters { get; set; }
 }
