@@ -24,6 +24,7 @@ public class CircleHelper
             {
                 var centerParts = parts[0].Split(',');
 
+                //Check for a valid center point
                 if (centerParts.Length != 2)
                     throw new InvalidCircleException();
 
