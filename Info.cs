@@ -3,7 +3,7 @@ using NCAP.Enumerations;
 
 namespace NCAP;
 
-[XmlRoot(elementName: "info")]
+[XmlRoot("alert")]
 public class Info
 {
     [XmlElement("language", IsNullable = false)]
@@ -32,7 +32,7 @@ public class Info
     public string? Audience { get; set; }
 
     [XmlArray("info", IsNullable = false)]
-    [XmlArrayItem(elementName: "eventCode", IsNullable = false)]
+    [XmlArrayItem("eventCode", IsNullable = false)]
     public ICollection<EventCode>? EventCodes { get; set; }
 
     [XmlElement("effective", IsNullable = false)]

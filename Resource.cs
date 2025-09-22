@@ -2,7 +2,7 @@
 
 namespace NCAP;
 
-[XmlRoot("resource")]
+[XmlRoot("info")]
 public class Resource
 {
     [XmlElement("resourceDesc")]

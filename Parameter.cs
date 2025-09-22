@@ -2,7 +2,7 @@
 
 namespace NCAP;
 
-[XmlRoot(elementName: "parameter")]
+[XmlRoot("info")]
 public class Parameter
 {
     [XmlElement("valueName")]

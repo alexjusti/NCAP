@@ -3,7 +3,7 @@ using NCAP.Helpers;
 
 namespace NCAP;
 
-[XmlRoot("area")]
+[XmlRoot("info")]
 public class Area
 {
     [XmlElement("areaDesc")]

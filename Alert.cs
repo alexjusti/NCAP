@@ -78,7 +78,7 @@ public class Alert
     }
 
     [XmlArray("alert", IsNullable = false)]
-    [XmlArrayItem(elementName: "code", IsNullable = false)]
+    [XmlArrayItem("code", IsNullable = false)]
     public ICollection<string>? Codes { get; set; }
 
     [XmlElement("note", IsNullable = false)]
