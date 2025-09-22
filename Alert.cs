@@ -60,7 +60,6 @@ public class Alert
             return addresses;
         }
 
-        //TODO: Add double quote for values with spaces
         set
         {
             var addresses = new List<string>();
