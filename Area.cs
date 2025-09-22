@@ -1,13 +1,19 @@
-﻿using NCAP.Helpers;
+﻿using System.Xml.Serialization;
+using NCAP.Helpers;
 
 namespace NCAP;
 
+[XmlRoot("area")]
 public class Area
 {
-    public string Description { get; set; }
+    [XmlElement("areaDesc")]
+    public required string Description { get; set; }
 
+    [XmlArray("area", IsNullable = false)]
+    [XmlArrayItem("polygon", IsNullable = false)]
     private ICollection<string>? _Polygons;
 
+    [XmlIgnore]
     public ICollection<Polygon> Polygons
     {
         get => PolygonHelper.ParsePolygons(_Polygons);
@@ -15,8 +21,11 @@ public class Area
         set => _Polygons = PolygonHelper.PolygonsToStringCollection(value);
     }
 
+    [XmlArray("area", IsNullable = false)]
+    [XmlArrayItem("circle", IsNullable = false)]
     private ICollection<string>? _Circles { get; set; }
 
+    [XmlIgnore]
     public ICollection<Circle> Circles
     {
         get => CircleHelper.ParseCircles(_Circles);
@@ -24,11 +33,13 @@ public class Area
         set => _Circles = CircleHelper.CirclesToStringCollection(value);
     }
 
-    private ICollection<Geocode>? _Geocodes { get; set; }
+    [XmlArray("area", IsNullable = false)]
+    [XmlArrayItem("geocode", IsNullable = false)]
+    public ICollection<Geocode>? Geocodes { get; set; }
 
-    public ICollection<Geocode>? Geocodes => _Geocodes ?? new List<Geocode>();
-
+    [XmlElement("altitude", IsNullable = false)]
     public int? Altitude { get; set; }
 
+    [XmlElement("ceiling", IsNullable = false)]
     public int? Ceiling { get; set; }
 }
