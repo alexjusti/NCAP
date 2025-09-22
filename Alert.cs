@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Text.RegularExpressions;
+using System.Xml.Serialization;
 using NCAP.Enumerations;
 
 namespace NCAP;
@@ -52,14 +53,29 @@ public class Alert
             if (_Addresses == null)
                 return new List<string>();
 
-            var addresses = _Addresses.Split(" ").ToList();
+            var addresses = _Addresses.Split().ToList();
 
             addresses.ForEach(item => { item.Trim('"'); });
 
             return addresses;
         }
 
-        set => _Addresses = string.Join(' ', value);
+        //TODO: Add double quote for values with spaces
+        set
+        {
+            var addresses = new List<string>();
+
+            foreach (var address in value)
+            {
+                //Check string for whitespace & surround with quotes if whitespace is present
+                if (Regex.Match(address, @"\s").Length > 0)
+                    addresses.Add($"\"{address}\"");
+                else
+                    addresses.Add(address);
+            }
+
+            _Addresses = string.Join(' ', addresses);
+        }
     }
 
     [XmlArray("alert", IsNullable = false)]
