@@ -6,7 +6,7 @@ namespace NCAP.Helpers;
 public static class PolygonHelper
 {
     /// <summary>
-    /// Parse polygons formatted as strings into a Polygon object
+    /// Parse polygons formatted as strings into a collection of Polygon objects
     /// </summary>
     /// <param name="values"></param>
     /// <returns></returns>
@@ -64,7 +64,7 @@ public static class PolygonHelper
     }
 
     /// <summary>
-    /// Convert Polygon objects into formatted strings
+    /// Convert a collection of Polygon objects into formatted strings
     /// </summary>
     /// <param name="polygons"></param>
     /// <returns></returns>

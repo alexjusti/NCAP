@@ -5,6 +5,12 @@ namespace NCAP.Helpers;
 
 public class CircleHelper
 {
+    /// <summary>
+    /// Parse circles formatted as strings into a collection of Circle Objects
+    /// </summary>
+    /// <param name="values"></param>
+    /// <returns></returns>
+    /// <exception cref="InvalidCircleException"></exception>
     public static ICollection<Circle> ParseCircles(ICollection<string>? values)
     {
         if (values == null)
@@ -50,6 +56,11 @@ public class CircleHelper
         return circles;
     }
 
+    /// <summary>
+    /// Convert a collection of circle objects into formatted strings
+    /// </summary>
+    /// <param name="circles"></param>
+    /// <returns></returns>
     public static ICollection<string> CirclesToStringCollection(ICollection<Circle> circles)
     {
         if (circles.Count == 0)
