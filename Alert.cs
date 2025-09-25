@@ -4,7 +4,7 @@ using NCAP.Enumerations;
 
 namespace NCAP;
 
-[XmlRoot("alert")]
+[XmlRoot("alert", Namespace = "urn:oasis:names:tc:emergency:cap:1.2")]
 public class Alert
 {
     [XmlElement("identifier")]
