@@ -41,7 +41,7 @@ public class Info
     [XmlIgnore]
     public DateTime? Effective
     {
-        get => _Effective == null ? new DateTime() : DateTime.Parse(_Effective);
+        get => _Effective == null ? null : DateTime.Parse(_Effective);
 
         set => _Effective = value?.ToString("s");
     }
@@ -52,7 +52,7 @@ public class Info
     [XmlIgnore]
     public DateTime? Onset
     {
-        get => _Onset == null ? new DateTime() : DateTime.Parse(_Onset);
+        get => _Onset == null ? null : DateTime.Parse(_Onset);
 
         set => _Onset = value?.ToString("s");
     }
@@ -63,7 +63,7 @@ public class Info
     [XmlIgnore]
     public DateTime? Expires
     {
-        get => _Expires == null ? new DateTime() : DateTime.Parse(_Expires);
+        get => _Expires == null ? null : DateTime.Parse(_Expires);
 
         set => _Expires = value?.ToString("s");
     }
