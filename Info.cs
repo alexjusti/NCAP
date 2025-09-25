@@ -9,15 +9,16 @@ public class Info
     [XmlElement("language", IsNullable = false)]
     public string? Language { get; set; }
 
-    [XmlArray("info")]
-    [XmlArrayItem(elementName: "category")]
-    public required ICollection<Category> Categories { get; set; }
+    [XmlElement("category")]
+    public required List<Category> Categories { get; set; }
 
     [XmlElement("event")]
     public required string Event { get; set; }
 
-    [XmlElement("responseType", IsNullable = false)]
+    [XmlElement("responseType")]
     public ResponseType? ResponseType { get; set; }
+
+    public bool ShouldSerializeResponseType() => ResponseType.HasValue;
 
     [XmlElement("urgency")]
     public required Urgency Urgency { get; set; }
@@ -31,9 +32,8 @@ public class Info
     [XmlElement("audience", IsNullable = false)]
     public string? Audience { get; set; }
 
-    [XmlArray("info", IsNullable = false)]
-    [XmlArrayItem("eventCode", IsNullable = false)]
-    public ICollection<EventCode>? EventCodes { get; set; }
+    [XmlElement("eventCode")]
+    public List<EventCode>? EventCodes { get; set; }
 
     [XmlElement("effective", IsNullable = false)]
     public string? _Effective { get; set; }
@@ -86,7 +86,12 @@ public class Info
     [XmlElement("contact", IsNullable = false)]
     public string? Contact { get; set; }
 
-    [XmlArray("info", IsNullable = false)]
-    [XmlArrayItem("parameter", IsNullable = false)]
-    public ICollection<Parameter>? Parameters { get; set; }
+    [XmlElement("parameter")]
+    public List<Parameter>? Parameters { get; set; }
+
+    [XmlElement("resource")]
+    public List<Resource>? Resources { get; set; }
+
+    [XmlElement("area")]
+    public List<Area>? Areas { get; set; }
 }

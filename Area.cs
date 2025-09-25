@@ -11,10 +11,10 @@ public class Area
 
     [XmlArray("area", IsNullable = false)]
     [XmlArrayItem("polygon", IsNullable = false)]
-    private ICollection<string>? _Polygons;
+    private List<string>? _Polygons;
 
     [XmlIgnore]
-    public ICollection<Polygon> Polygons
+    public List<Polygon> Polygons
     {
         get => PolygonHelper.ParsePolygons(_Polygons);
 
@@ -23,10 +23,10 @@ public class Area
 
     [XmlArray("area", IsNullable = false)]
     [XmlArrayItem("circle", IsNullable = false)]
-    private ICollection<string>? _Circles { get; set; }
+    private List<string>? _Circles { get; set; }
 
     [XmlIgnore]
-    public ICollection<Circle> Circles
+    public List<Circle> Circles
     {
         get => CircleHelper.ParseCircles(_Circles);
 
@@ -35,11 +35,11 @@ public class Area
 
     [XmlArray("area", IsNullable = false)]
     [XmlArrayItem("geocode", IsNullable = false)]
-    public ICollection<Geocode>? Geocodes { get; set; }
+    public List<Geocode>? Geocodes { get; set; }
 
-    [XmlElement("altitude", IsNullable = false)]
+    [XmlElement("altitude")]
     public int? Altitude { get; set; }
 
-    [XmlElement("ceiling", IsNullable = false)]
+    [XmlElement("ceiling")]
     public int? Ceiling { get; set; }
 }

@@ -24,7 +24,7 @@ public class Alert
     }
 
     [XmlElement("status", IsNullable = false)]
-    public Status Status { get; set; }
+    public required Status Status { get; set; }
 
     [XmlElement("msgType")]
     public required MessageType MessageType { get; set; }
@@ -46,7 +46,7 @@ public class Alert
     /// and contain double quotes for addresses containing whitespace
     /// </summary>
     [XmlIgnore]
-    public ICollection<string> Addresses
+    public List<string> Addresses
     {
         get
         {
@@ -77,9 +77,8 @@ public class Alert
         }
     }
 
-    [XmlArray("alert", IsNullable = false)]
-    [XmlArrayItem("code", IsNullable = false)]
-    public ICollection<string>? Codes { get; set; }
+    [XmlElement("code")]
+    public List<string>? Codes { get; set; }
 
     [XmlElement("note", IsNullable = false)]
     public string? Note { get; set; }
@@ -91,6 +90,9 @@ public class Alert
     /// Parse the references element; references are separated by whitespace
     /// </summary>
     [XmlIgnore]
-    public ICollection<string> References
+    public List<string> References
         => _References == null ? [] : _References.Split().ToList();
+
+    [XmlElement("info")]
+    public required Info Info { get; set; }
 }
