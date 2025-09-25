@@ -58,14 +58,14 @@ public class Info
     }
 
     [XmlElement("expires", IsNullable = false)]
-    public string? _Expires { get; set; }
+    public string _Expires { get; set; }
 
     [XmlIgnore]
-    public DateTime? Expires
+    public required DateTime Expires
     {
-        get => _Expires == null ? null : DateTime.Parse(_Expires);
+        get => DateTime.Parse(_Expires);
 
-        set => _Expires = value?.ToString("s");
+        set => _Expires = value.ToString("s");
     }
 
     [XmlElement("senderName", IsNullable = false)]
