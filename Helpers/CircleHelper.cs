@@ -11,7 +11,7 @@ public class CircleHelper
     /// <param name="values"></param>
     /// <returns></returns>
     /// <exception cref="InvalidCircleException"></exception>
-    public static ICollection<Circle> ParseCircles(ICollection<string>? values)
+    public static List<Circle> ParseCircles(List<string>? values)
     {
         if (values == null)
             return new List<Circle>();
@@ -61,7 +61,7 @@ public class CircleHelper
     /// </summary>
     /// <param name="circles"></param>
     /// <returns></returns>
-    public static ICollection<string> CirclesToStringCollection(ICollection<Circle> circles)
+    public static List<string> CirclesToStringCollection(List<Circle> circles)
     {
         if (circles.Count == 0)
             return new List<string>();

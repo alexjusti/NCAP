@@ -11,7 +11,7 @@ public static class PolygonHelper
     /// <param name="values"></param>
     /// <returns></returns>
     /// <exception cref="InvalidPolygonException"></exception>
-    public static ICollection<Polygon> ParsePolygons(ICollection<string>? values)
+    public static List<Polygon> ParsePolygons(List<string>? values)
     {
         if (values == null)
             return new List<Polygon>();
@@ -68,7 +68,7 @@ public static class PolygonHelper
     /// </summary>
     /// <param name="polygons"></param>
     /// <returns></returns>
-    public static ICollection<string> PolygonsToStringCollection(ICollection<Polygon> polygons)
+    public static List<string> PolygonsToStringCollection(List<Polygon> polygons)
     {
         if (polygons.Count == 0)
             return new List<string>();
