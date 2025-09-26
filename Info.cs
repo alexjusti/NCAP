@@ -89,6 +89,21 @@ public class Info
     [XmlElement("parameter")]
     public List<Parameter>? Parameters { get; set; }
 
+    public string? FindParameterValue(string parameterName)
+    {
+        return Parameters?
+            .FirstOrDefault(p => p.ValueName == parameterName)
+            ?.Value;
+    }
+
+    public List<string>? FindParameterValues(string parameterName)
+    {
+        return Parameters?
+            .Where(p => p.ValueName == parameterName)
+            .Select(p => p.ValueName)
+            .ToList();
+    }
+
     [XmlElement("resource")]
     public List<Resource>? Resources { get; set; }
 
