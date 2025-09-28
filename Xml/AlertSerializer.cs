@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using NCAP.Structures;
+using System.Text;
 using System.Xml.Serialization;
 
 namespace NCAP.Xml;

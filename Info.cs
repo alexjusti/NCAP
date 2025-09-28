@@ -2,6 +2,7 @@
 using NCAP.Constants;
 using NCAP.Enumerations;
 using NCAP.Specialty.Nws;
+using NCAP.Structures;
 
 namespace NCAP;
 

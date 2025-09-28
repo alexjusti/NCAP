@@ -1,4 +1,4 @@
-﻿namespace NCAP;
+﻿namespace NCAP.Structures;
 
 public class Circle
 {

@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace NCAP;
+namespace NCAP.Structures;
 
 [XmlRoot("area")]
 public class Geocode

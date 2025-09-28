@@ -1,7 +1,7 @@
 ﻿using System.Xml.Serialization;
 using NCAP.Helpers;
 
-namespace NCAP;
+namespace NCAP.Structures;
 
 [XmlRoot("info")]
 public class Area

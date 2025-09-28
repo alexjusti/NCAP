@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Xml.Serialization;
 using NCAP.Exceptions;
+using NCAP.Structures;
 
 namespace NCAP.Xml;
 

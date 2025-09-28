@@ -1,9 +1,9 @@
 ﻿using System.Xml.Serialization;
 
-namespace NCAP;
+namespace NCAP.Structures;
 
 [XmlRoot("info")]
-public class EventCode
+public class Parameter
 {
     [XmlElement("valueName")]
     public string ValueName { get; set; }

@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using NCAP.Enumerations;
 
-namespace NCAP;
+namespace NCAP.Structures;
 
 [XmlRoot("alert", Namespace = "urn:oasis:names:tc:emergency:cap:1.2")]
 public class Alert
