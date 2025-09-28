@@ -1,5 +1,5 @@
-﻿using NCAP.Exceptions;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using NCAP.Exceptions;
 
 namespace NCAP.Helpers;
 
