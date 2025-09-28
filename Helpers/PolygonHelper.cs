@@ -14,14 +14,12 @@ public static class PolygonHelper
     public static List<Polygon> ParsePolygons(List<string>? values)
     {
         if (values == null)
-            return new List<Polygon>();
+            return [];
 
         var polygons = new List<Polygon>();
 
-        foreach (var polygon in values)
+        foreach (var pointPairs in values.Select(polygon => Regex.Split(polygon, "\\s+")))
         {
-            var pointPairs = Regex.Split(polygon, "\\s+");
-
             //Check for a valid number of points ( >= 4)
             if (pointPairs.Length < 4)
                 throw new InvalidPolygonException();
@@ -71,16 +69,15 @@ public static class PolygonHelper
     public static List<string> PolygonsToStringCollection(List<Polygon> polygons)
     {
         if (polygons.Count == 0)
-            return new List<string>();
+            return [];
 
         var formattedPolygons = new List<string>(polygons.Count);
 
         foreach (var polygon in polygons)
         {
-            var points = new List<string>();
-
-            foreach (var point in polygon.Points)
-                points.Add($"{point.X},{point.Y}");
+            var points = polygon.Points
+                .Select(point => $"{point.X},{point.Y}")
+                .ToList();
 
             formattedPolygons.Add(string.Join(' ', points));
         }

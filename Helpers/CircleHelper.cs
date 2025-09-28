@@ -14,14 +14,12 @@ public class CircleHelper
     public static List<Circle> ParseCircles(List<string>? values)
     {
         if (values == null)
-            return new List<Circle>();
+            return [];
 
         var circles = new List<Circle>();
 
-        foreach (var value in values)
+        foreach (var parts in values.Select(value => Regex.Split(value, "\\s+")))
         {
-            var parts = Regex.Split(value, "\\s+");
-
             //Check for a center point and radius
             if (parts.Length != 2)
                 throw new InvalidCircleException();
@@ -64,13 +62,10 @@ public class CircleHelper
     public static List<string> CirclesToStringCollection(List<Circle> circles)
     {
         if (circles.Count == 0)
-            return new List<string>();
+            return [];
 
-        var formattedCircles = new List<string>();
-
-        foreach (var circle in circles)
-            formattedCircles.Add($"{circle.Center.X},{circle.Center.Y} {circle.Radius}");
-
-        return formattedCircles;
+        return circles
+            .Select(circle => $"{circle.Center.X},{circle.Center.Y} {circle.Radius}")
+            .ToList();
     }
 }
