@@ -1,5 +1,7 @@
 ﻿using System.Xml.Serialization;
+using NCAP.Constants;
 using NCAP.Enumerations;
+using NCAP.Specialty.Nws;
 
 namespace NCAP;
 
@@ -105,6 +107,11 @@ public class Info
             .Select(p => p.ValueName)
             .ToList();
     }
+
+    [XmlIgnore]
+    public NwsParameters? NwsParameters => SenderName == NwsConstants.WebmasterEmail
+        ? new NwsParameters(this)
+        : null;
 
     [XmlElement("resource")]
     public List<Resource>? Resources { get; set; }
