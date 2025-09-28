@@ -1,4 +1,6 @@
-﻿namespace NCAP.Specialty.Nws;
+﻿using NCAP.Structures;
+
+namespace NCAP.Specialty.Nws;
 
 public class NwsParameters(Info info)
 {
