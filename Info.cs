@@ -58,7 +58,9 @@ public class Info
     }
 
     [XmlElement("expires", IsNullable = false)]
+    #pragma warning disable CS8618
     public string _Expires { get; set; }
+    #pragma warning restore CS8618
 
     [XmlIgnore]
     public required DateTime Expires
@@ -92,8 +94,8 @@ public class Info
     public string? FindParameterValue(string parameterName)
     {
         return Parameters?
-            .FirstOrDefault(p => p.ValueName == parameterName)
-            ?.Value;
+            .FirstOrDefault(p => p.ValueName == parameterName)?
+            .Value;
     }
 
     public List<string>? FindParameterValues(string parameterName)

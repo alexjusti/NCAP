@@ -1,6 +1,8 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Reflection.Metadata.Ecma335;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using NCAP.Enumerations;
+using NCAP.Exceptions;
 
 namespace NCAP;
 
@@ -14,7 +16,9 @@ public class Alert
     public required string Sender { get; set; }
 
     [XmlElement("sent", IsNullable = false)]
+    #pragma warning disable CS8618
     private string _Sent { get; set; }
+    #pragma warning restore CS8618
 
     [XmlIgnore]
     public required DateTime Sent
@@ -86,13 +90,20 @@ public class Alert
     [XmlElement("references", IsNullable = false)]
     private string? _References { get; set; }
 
-    /// <summary>
-    /// Parse the references element; references are separated by whitespace
-    /// </summary>
     [XmlIgnore]
     public List<string> References
-        => _References == null ? [] : _References.Split().ToList();
+    {
+        get
+        {
+            if (_References == null)
+                return [];
+
+            return _References
+                .Split()
+                .ToList();
+        }
+    }
 
     [XmlElement("info")]
-    public required Info Info { get; set; }
+    public required List<Info> Info { get; set; }
 }
