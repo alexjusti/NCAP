@@ -37,6 +37,12 @@ public class Area
     [XmlArrayItem("geocode", IsNullable = false)]
     public List<Geocode>? Geocodes { get; set; }
 
+    [XmlIgnore]
+    public List<string>? SameCodes =>
+        Geocodes?.Where(geocode => geocode.ValueName == "SAME")
+            .Select(geocode => geocode.Value)
+            .ToList();
+
     [XmlElement("altitude")]
     public int? Altitude { get; set; }
 
