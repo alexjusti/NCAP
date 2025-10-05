@@ -7,7 +7,7 @@ namespace NCAP.Xml;
 
 public class AlertDeserializer
 {
-    public static Alert? DeserializeAlert(Stream stream)
+    public static Alert DeserializeAlert(Stream stream)
     {
         //An empty stream cannot be deserialized
         if (stream.Length == 0)
@@ -25,7 +25,7 @@ public class AlertDeserializer
         }
     }
 
-    public static IEnumerable<Alert>? DeserializeAlerts(Stream stream)
+    public static IEnumerable<Alert> DeserializeAlerts(Stream stream)
     {
         if (stream.Length == 0)
             throw new AlertDeserializationException();
@@ -36,7 +36,9 @@ public class AlertDeserializer
                 typeof(List<Alert>),
                 new XmlRootAttribute("alerts"));
 
-            return serializer.Deserialize(stream) as List<Alert>;
+            var alerts = serializer.Deserialize(stream) as List<Alert>;
+
+            return alerts ?? [];
         }
         catch (Exception ex)
         {
