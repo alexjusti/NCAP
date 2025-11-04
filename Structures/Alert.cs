@@ -4,7 +4,7 @@ using NCAP.Enumerations;
 
 namespace NCAP.Structures;
 
-[XmlRoot("alert", Namespace = "urn:oasis:names:tc:emergency:cap:1.2")]
+[XmlRoot("alert")]
 public class Alert
 {
     [XmlElement("identifier")]
@@ -53,7 +53,7 @@ public class Alert
         get
         {
             if (_Addresses == null)
-                return new List<string>();
+                return [];
 
             var addresses = _Addresses.Split().ToList();
 
