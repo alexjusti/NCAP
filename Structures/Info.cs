@@ -5,7 +5,7 @@ using NCAP.Specialty.Nws;
 
 namespace NCAP.Structures;
 
-[XmlRoot("alert")]
+[XmlRoot("info")]
 public class Info
 {
     [XmlElement("language", IsNullable = false)]

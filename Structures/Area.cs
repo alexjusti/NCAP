@@ -3,15 +3,14 @@ using NCAP.Helpers;
 
 namespace NCAP.Structures;
 
-[XmlRoot("info")]
+[XmlRoot("area")]
 public class Area
 {
     [XmlElement("areaDesc")]
     public required string Description { get; set; }
 
-    [XmlArray("area", IsNullable = false)]
-    [XmlArrayItem("polygon", IsNullable = false)]
-    private List<string>? _Polygons;
+    [XmlElement("polygon")]
+    public List<string>? _Polygons;
 
     [XmlIgnore]
     public List<Polygon> Polygons
@@ -21,9 +20,8 @@ public class Area
         set => _Polygons = PolygonHelper.PolygonsToStringCollection(value);
     }
 
-    [XmlArray("area", IsNullable = false)]
-    [XmlArrayItem("circle", IsNullable = false)]
-    private List<string>? _Circles { get; set; }
+    [XmlElement("circle")]
+    public List<string>? _Circles { get; set; }
 
     [XmlIgnore]
     public List<Circle> Circles
@@ -33,8 +31,7 @@ public class Area
         set => _Circles = CircleHelper.CirclesToStringCollection(value);
     }
 
-    [XmlArray("area", IsNullable = false)]
-    [XmlArrayItem("geocode", IsNullable = false)]
+    [XmlElement("geocode")]
     public List<Geocode>? Geocodes { get; set; }
 
     [XmlIgnore]

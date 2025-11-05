@@ -2,7 +2,7 @@
 
 namespace NCAP.Structures;
 
-[XmlRoot("info")]
+[XmlRoot("eventCode")]
 public class EventCode
 {
     [XmlElement("valueName")]

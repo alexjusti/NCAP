@@ -2,7 +2,7 @@
 
 namespace NCAP.Structures;
 
-[XmlRoot("area")]
+[XmlRoot("geocode")]
 public class Geocode
 {
     [XmlElement("valueName")]

@@ -15,7 +15,7 @@ public class Alert
 
     [XmlElement("sent", IsNullable = false)]
     #pragma warning disable CS8618
-    private string _Sent { get; set; }
+    public string _Sent { get; set; }
     #pragma warning restore CS8618
 
     [XmlIgnore]
@@ -41,7 +41,7 @@ public class Alert
     public string? Restriction { get; set; }
 
     [XmlElement("addresses", IsNullable = false)]
-    private string? _Addresses { get; set; }
+    public string? _Addresses { get; set; }
 
     /// <summary>
     /// Parse the addresses element; addresses are separated by whitespace
@@ -86,7 +86,7 @@ public class Alert
     public string? Note { get; set; }
 
     [XmlElement("references", IsNullable = false)]
-    private string? _References { get; set; }
+    public string? _References { get; set; }
 
     [XmlIgnore]
     public List<string> References
