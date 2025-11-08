@@ -1,4 +1,4 @@
-﻿namespace NCAP.Constants;
+﻿namespace NetCAP.Constants;
 
 public static class NwsConstants
 {

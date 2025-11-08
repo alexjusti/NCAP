@@ -1,4 +1,4 @@
-﻿namespace NCAP.Structures;
+﻿namespace NetCAP.Structures;
 
 public class Polygon
 {

@@ -1,8 +1,9 @@
 ﻿using System.Text.RegularExpressions;
-using NCAP.Exceptions;
-using NCAP.Structures;
+using NetCAP.Structures;
+using NetCAP.Exceptions;
+using NetCAP.Structures;
 
-namespace NCAP.Helpers;
+namespace NetCAP.Helpers;
 
 public class CircleHelper
 {

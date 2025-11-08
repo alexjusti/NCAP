@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace NCAP.Enumerations;
+namespace NetCAP.Enumerations;
 
 public enum Category
 {

@@ -1,4 +1,4 @@
-﻿namespace NCAP.Enumerations;
+﻿namespace NetCAP.Enumerations;
 
 public enum MessageType
 {

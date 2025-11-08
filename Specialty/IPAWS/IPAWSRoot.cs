@@ -1,7 +1,7 @@
 ﻿using System.Xml.Serialization;
-using NCAP.Structures;
+using NetCAP.Structures;
 
-namespace NCAP.Specialty.IPAWS;
+namespace NetCAP.Specialty.IPAWS;
 
 [XmlRoot("alerts", Namespace = "http://gov.fema.ipaws.services/feed")]
 public class IPAWSRoot

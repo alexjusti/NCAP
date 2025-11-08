@@ -1,8 +1,8 @@
 ﻿using System.Text.RegularExpressions;
 using System.Xml.Serialization;
-using NCAP.Enumerations;
+using NetCAP.Enumerations;
 
-namespace NCAP.Structures;
+namespace NetCAP.Structures;
 
 [XmlRoot("alert", Namespace = "urn:oasis:names:tc:emergency:cap:1.2")]
 public class Alert

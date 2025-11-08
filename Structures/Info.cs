@@ -1,9 +1,9 @@
 ﻿using System.Xml.Serialization;
-using NCAP.Constants;
-using NCAP.Enumerations;
-using NCAP.Specialty.Nws;
+using NetCAP.Constants;
+using NetCAP.Enumerations;
+using NetCAP.Specialty.Nws;
 
-namespace NCAP.Structures;
+namespace NetCAP.Structures;
 
 [XmlRoot("info")]
 public class Info

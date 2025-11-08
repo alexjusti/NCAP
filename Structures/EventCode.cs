@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace NCAP.Structures;
+namespace NetCAP.Structures;
 
 [XmlRoot("eventCode")]
 public class EventCode

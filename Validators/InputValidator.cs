@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace NCAP.Validators;
+namespace NetCAP.Validators;
 
 public class InputValidator
 {

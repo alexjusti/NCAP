@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <SignAssembly>False</SignAssembly>
+    <Title>NCAP</Title>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageTags>cap;ipaws;emergency</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/alexjusti/NetCAP.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/alexjusti/NetCAP</PackageProjectUrl>
+    <Copyright>2025</Copyright>
+    <Description>.NET Implementation of the CAP (Common Alerting Protocol)</Description>
+    <Company>Justi Emergency Technologies</Company>
+    <Authors>alexjusti</Authors>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>NetCAP</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="NCAP.sln.DotSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExtendedXmlSerializer" Version="3.9.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

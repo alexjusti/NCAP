@@ -1,4 +1,4 @@
-﻿namespace NCAP.Specialty.Nws;
+﻿namespace NetCAP.Specialty.Nws;
 
 public enum BlockChannel
 {

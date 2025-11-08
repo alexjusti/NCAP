@@ -1,4 +1,4 @@
-﻿namespace NCAP.Exceptions;
+﻿namespace NetCAP.Exceptions;
 
 public class InvalidCircleException : Exception;
 
