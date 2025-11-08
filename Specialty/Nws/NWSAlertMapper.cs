@@ -1,11 +1,8 @@
-﻿using ExtendedXmlSerializer.ContentModel.Content;
-using NCAP.Structures;
-using System.Xml;
+﻿using NetCAP.Structures;
 using System.Xml.Linq;
-using ExtendedXmlSerializer;
-using NCAP.Enumerations;
+using NetCAP.Enumerations;
 
-namespace NCAP.Specialty.Nws;
+namespace NetCAP.Specialty.Nws;
 
 /* Since the National Weather Service can't play nice in the sandbox and format their
  alerts like everyone else, we have to map their alerts to the standard CAP 1.2 format */
@@ -32,7 +29,7 @@ public class NWSAlertMapper
         return new Area
         {
             Description = GetElementValue(elements, "areaDesc"),
-            _Polygons = GetElementValues(elements, "polygon").ToList(),
+            _Polygons = [.. GetElementValues(elements, "polygon")],
             Geocodes = geocodes
         };
     }
@@ -81,8 +78,7 @@ public class NWSAlertMapper
                     new Info
                     {
                         Language = GetElementValue(descendants, "language"),
-                        Categories = GetElementValues(descendants, "category").Select(Enum.Parse<Category>)
-                            .ToList(),
+                        Categories = [.. GetElementValues(descendants, "category").Select(Enum.Parse<Category>)],
                         Event = GetElementValue(descendants, "event"),
                         ResponseType = Enum.Parse<ResponseType>(GetElementValue(descendants, "responseType")),
                         Urgency = Enum.Parse<Urgency>(GetElementValue(descendants, "urgency")),
