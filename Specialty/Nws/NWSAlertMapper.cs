@@ -34,7 +34,18 @@ public class NWSAlertMapper
         };
     }
 
-    private static List<Parameter> MapParameters(IEnumerable<XElement> elements)
+    private static IEnumerable<EventCode> MapEventCodes(IEnumerable<XElement> elements)
+    {
+        return elements.Where(e => e.Name == "eventCode")
+            .Select(e => e.Descendants())
+            .Select(ec => new EventCode
+            {
+                ValueName = GetElementValue(ec, "valueName"),
+                Value = GetElementValue(ec, "value")
+            });
+    }
+
+    private static IEnumerable<Parameter> MapParameters(IEnumerable<XElement> elements)
     {
         return elements.Where(e => e.Name == "parameter")
             .Select(e => e.Descendants())
@@ -42,7 +53,7 @@ public class NWSAlertMapper
             {
                 ValueName = GetElementValue(p, "valueName"),
                 Value = GetElementValue(p, "value")
-            }).ToList();
+            });
     }
 
     public static IEnumerable<Alert> MapAlertsFromFeed(Stream stream)
@@ -68,7 +79,7 @@ public class NWSAlertMapper
                 Status = Enum.Parse<Status>(GetElementValue(descendants, "status")),
                 MessageType = Enum.Parse<MessageType>(GetElementValue(descendants, "msgType")),
                 Scope = Enum.Parse<Scope>(GetElementValue(descendants, "scope")),
-                Codes = GetElementValues(descendants, "code").ToList(),
+                Codes = [.. GetElementValues(descendants, "code")],
                 Note = GetElementValue(descendants, "note"),
                 _References = GetElementValue(descendants, "references"),
 
@@ -85,7 +96,7 @@ public class NWSAlertMapper
                         Severity = Enum.Parse<Severity>(GetElementValue(descendants, "severity")),
                         Certainty = Enum.Parse<Certainty>(GetElementValue(descendants, "certainty")),
                         Audience = GetElementValue(descendants, "audience"),
-                        EventCodes = [], //TODO: Parsing method
+                        EventCodes = [..MapEventCodes(descendants)],
                         Effective = DateTime.Parse(GetElementValue(descendants, "effective")),
                         Onset = DateTime.Parse(GetElementValue(descendants, "onset")),
                         Expires = DateTime.Parse(GetElementValue(descendants, "expires")),
@@ -95,7 +106,7 @@ public class NWSAlertMapper
                         Instruction = GetElementValue(descendants, "instruction"),
                         Web = GetElementValue(descendants, "web"),
                         Areas = [MapArea(descendants)],
-                        Parameters = MapParameters(descendants)
+                        Parameters = [..MapParameters(descendants)]
                     }
                 ]
             };

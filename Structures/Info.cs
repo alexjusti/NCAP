@@ -1,7 +1,7 @@
 ﻿using System.Xml.Serialization;
-using NetCAP.Constants;
 using NetCAP.Enumerations;
 using NetCAP.Specialty.Nws;
+using NetCAP.Specialty.NWS;
 
 namespace NetCAP.Structures;
 
@@ -109,8 +109,8 @@ public class Info
     }
 
     [XmlIgnore]
-    public NwsParameters? NwsParameters => SenderName == NwsConstants.WebmasterEmail
-        ? new NwsParameters(this)
+    public NWSParameters? NWSParameters => SenderName == NWSConstants.WebmasterEmail
+        ? new NWSParameters(this)
         : null;
 
     [XmlElement("resource")]

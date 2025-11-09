@@ -1,6 +1,6 @@
-﻿namespace NetCAP.Constants;
+﻿namespace NetCAP.Specialty.NWS;
 
-public static class NwsConstants
+public static class NWSConstants
 {
     public const string WebmasterEmail = "w-nws.webmaster@noaa.gov";
 }

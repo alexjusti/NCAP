@@ -1,7 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using NetCAP.Structures;
 using NetCAP.Exceptions;
-using NetCAP.Structures;
 
 namespace NetCAP.Helpers;
 

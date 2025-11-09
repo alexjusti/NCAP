@@ -1,8 +1,8 @@
 ﻿using NetCAP.Structures;
 
-namespace NetCAP.Specialty.Nws;
+namespace NetCAP.Specialty.NWS;
 
-public class NwsParameters(Info info)
+public class NWSParameters(Info info)
 {
     /* See https://vlab.noaa.gov/web/nws-common-alerting-protocol/cap-documentation
      for additional details on the below properties in alerts issued by the NWS */
